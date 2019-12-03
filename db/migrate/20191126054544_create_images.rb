@@ -1,0 +1,14 @@
+class CreateImages < ActiveRecord::Migration[6.0]
+  def up
+    create_table :images do |t|
+      t.string :path, null: false
+      t.integer :report_id
+
+      t.timestamps
+    end
+  end
+
+  def down
+    drop_table :images
+  end
+end
