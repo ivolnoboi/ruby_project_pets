@@ -71,9 +71,11 @@ ActiveRecord::Schema.define(version: 2019_11_26_061428) do
 
   create_table "images", force: :cascade do |t|
     t.string "path", null: false
-    t.integer "report_id"
+    t.string "owner_type"
+    t.bigint "owner_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["owner_type", "owner_id"], name: "index_images_on_owner_type_and_owner_id"
   end
 
   create_table "locations", force: :cascade do |t|
