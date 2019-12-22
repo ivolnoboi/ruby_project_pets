@@ -32,4 +32,18 @@ class UserTest < ActiveSupport::TestCase
                            phone_number: '1234456', name: nil).valid?, false
   end
 
+  test 'user unique login' do
+      assert_equal User.create(login: 'login1', password: '12345', email: 'asd@example.com',
+                               phone_number: '1234456', name: 'kot').valid?, true
+      assert_equal User.create(login: 'login1', password: '3535', email: 'asd2@example.com',
+                               phone_number: '1234456', name: 'kot').valid?, false
+  end
+
+  test 'user unique email' do
+    assert_equal User.create(login: 'login1', password: '12345', email: 'asd@example.com',
+                             phone_number: '1234456', name: 'kot').valid?, true
+    assert_equal User.create(login: 'login2', password: '3535', email: 'asd@example.com',
+                             phone_number: '1234456', name: 'kot').valid?, false
+  end
+
 end
