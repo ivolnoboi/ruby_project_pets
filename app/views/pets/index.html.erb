@@ -1,0 +1,12 @@
+<h1 align="center">Питомцы</h1>
+<div>
+    <%- @pets.each do |pet|  %>
+    <h2><%= pet.name %> <br/></h2>
+    <h3>Адрес: <%= pet.location.city %>, <%= ((pet.location.district==nil)?"":(pet.location.district.to_s + ","))%>
+      ул. <%=pet.location.street %>, <%=pet.location.house %> <%= ((pet.location.flat==nil)?"":(", кв." + pet.location.flat.to_s))%></h3>
+    <h3>Порода: <%= pet.description.breed.name %></h3>
+    <h3>Окрас: <%= pet.description.color %></h3>
+    <h3>Пол: <%=pet.description.sex %></h3>
+    <h3>Возраст: <%= pet.description.age %></h3>
+  <%- end %>
+</div>
