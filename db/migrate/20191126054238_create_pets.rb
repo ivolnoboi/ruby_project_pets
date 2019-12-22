@@ -6,7 +6,6 @@ class CreatePets < ActiveRecord::Migration[6.0]
       t.integer :description_id, null: false
       t.integer :location_id, null: false
       t.integer :user_id, null: false
-      t.integer :image_id, null: false
 
       t.timestamps
     end

@@ -80,7 +80,6 @@ ActiveRecord::Schema.define(version: 2019_12_19_175645) do
   end
 
   create_table "events", force: :cascade do |t|
-    t.integer "image_id", null: false
     t.string "title", null: false
     t.datetime "event_date", null: false
     t.integer "user_id", null: false
@@ -92,11 +91,8 @@ ActiveRecord::Schema.define(version: 2019_12_19_175645) do
 
   create_table "images", force: :cascade do |t|
     t.string "path", null: false
-    t.string "owner_type"
-    t.bigint "owner_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["owner_type", "owner_id"], name: "index_images_on_owner_type_and_owner_id"
   end
 
   create_table "locations", force: :cascade do |t|
@@ -115,7 +111,6 @@ ActiveRecord::Schema.define(version: 2019_12_19_175645) do
     t.integer "description_id", null: false
     t.integer "location_id", null: false
     t.integer "user_id", null: false
-    t.integer "image_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
