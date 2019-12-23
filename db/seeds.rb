@@ -29,6 +29,7 @@ event1 = Event.create(title: 'Сбор пожертвований', event_date: 
 event2 = Event.create(title: 'Благотворительная акция', event_date: '2020-01-01 17:00:00', user: user2, location: location2, event_description: 'Благотворительная акция...')
 pet1 = Pet.create(name: 'Бобик', type_pet: type_pet2, description: description2, location: location1, user: user1)
 pet2 = Pet.create(name: 'Пушок', type_pet: type_pet1, description: description1, location: location2, user: user2)
+pet1.avatars.attach(io: File.open('E:\rub\untitled\app\assets\images\dog'), filename: 'dog.jpg')
 
 
 
