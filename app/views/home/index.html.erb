@@ -12,14 +12,79 @@
       height: 1024px;
       background: linear-gradient(180deg, rgba(207, 255, 246, 0.7) 0%, rgba(255, 248, 223, 0.7) 60.42%);
     }
+    @import url('https://fonts.googleapis.com/css?family=Ubuntu+Condensed');
+    .menu-main {
+      list-style: none;
+      margin: 0px 0 5px;
+      padding: 25px 0 5px;
+      text-align: center;
+      background: beige;
+    }
+    .menu-main li {display: inline-block;}
+    .menu-main li:after {
+      content: "|";
+      color: #606060;
+      display: inline-block;
+      vertical-align:top;
+    }
+    .menu-main li:last-child:after {content: none;}
+    .menu-main a {
+      text-decoration: none;
+      font-family: 'Ubuntu Condensed', sans-serif;
+      letter-spacing: 2px;
+      position: relative;
+      padding-bottom: 20px;
+      margin: 0 34px 0 30px;
+      font-size: 17px;
+      text-transform: uppercase;
+      display: inline-block;
+      transition: color .2s;
+    }
+    .menu-main a, .menu-main a:visited {color: #9d999d;}
+    .menu-main a.current, .menu-main a:hover{color: #feb386;}
+    .menu-main a:before,
+    .menu-main a:after {
+      content: "";
+      position: absolute;
+      height: 4px;
+      top: auto;
+      right: 50%;
+      bottom: -5px;
+      left: 50%;
+      background: #feb386;
+      transition: .8s;
+    }
+    .menu-main a:hover:before, .menu-main .current:before {left: 0;}
+    .menu-main a:hover:after, .menu-main .current:after {right: 0;}
+    @media (max-width: 550px) {
+      .menu-main {padding-top: 0;}
+      .menu-main li {display: block;}
+      .menu-main li:after {content: none;}
+      .menu-main a {
+        padding: 25px 0 20px;
+        margin: 0 30px;
+      }
+    }
+    .scale {
+      /*transition: 1s; /* Время эффекта */
+      margin-top: 50px;
+    }
+    /*.scale:hover {
+      transform: scale(1.2); /* Увеличиваем масштаб
+    }*/
   </style>
   <title>Это главная страница</title>
-  <h1 align="center">Это главная страница</h1>
-  <div>
-    <h2><%= link_to "Питомцы", "/pets" %></h2>
-    <h2><%= link_to "О нас", "/about_us" %></h2>
-    <h2><%= link_to "События", "/events" %></h2>
-    <h2><%= link_to "Отчёты", "/reports" %></h2>
-  </div>
+  <ul class="menu-main">
+    <li><a href="/"class="current">Главная страница</a></li>
+    <li><a href="/pets">Питомцы</a></li>
+    <li><a href="/about_us">О нас</a></li>
+    <li><a href="/events">События</a></li>
+    <li><a href="/reports">Отчёты</a></li>
+  </ul>
 </head>
+<body>
+ <div align="middle" class="scale">
+   <%=link_to image_tag("pet2.png", :alt => "Животные"), root_path %>
+ </div>
+</body>
 </html>
