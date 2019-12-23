@@ -8,4 +8,5 @@ Rails.application.routes.draw do
   get '/pets', to: 'pets#index'
   get '/about_us', to: 'about_us#index'
   get '/events', to: 'events#index'
+  get '/reports', to: 'reports#index'
 end
